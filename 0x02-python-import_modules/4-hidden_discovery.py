@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import hidden_4
 if __name__ == "__main__":
-for name in sorted(dir(hidden_4)):
-    if name[:2] != '__':
-        print(name)
+    token = dir(hidden_4)
+    for name in range(len(token)):
+        if token[name][:2] != '__':
+            print(token[name])
