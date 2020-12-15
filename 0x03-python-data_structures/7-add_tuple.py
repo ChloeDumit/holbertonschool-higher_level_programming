@@ -1,12 +1,10 @@
 #!/usr/bin/pyhton3
 def add_tuple(tuple_a=(), tuple_b=()):
-    new_tuple = ()
-    a = 0
-    b = 0
-    ret = []
-    for i in range(2):
-        a = tuple_a[i] if i < len(tuple_a) else 0
-        b = tuple_b[i] if i < len(tuple_b) else 0
-        ret.append(a + b)
-    new_tuple = ret[0], ret[1]
-    return new_tuple
+    if tuple_a is None or tuple_b is None:
+        return
+    first = tuple_a + ('0', '0')
+    second = tuple_b + ('0', '0')
+
+    sum1 = int(first[0]) + int(second[0])
+    sum2 = int(first[1]) + int(second[1])
+    return(sum1), (sum2)
