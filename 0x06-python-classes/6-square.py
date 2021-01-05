@@ -48,11 +48,15 @@ class Square:
 
     def my_print(self):
         """print square with coordinates"""
-        if self.__size == 0:
-            print()
-        if self.position:
-            if self.__size > 0:
-                print("\n" * self.__position[1], end="")
-                for a in range(self.size):
-                    print(" " * self.__position[0], end="")
-                    print("#" * self.__size)
+         if (self.size != 0):
+            for n in range(self.__position[1]):
+                print("")
+            for x in range(self.__size):
+                for y in range(self.__size + self.__position[0]):
+                    if (y < self.__position[0]):
+                        print(" ", end="")
+                    else:
+                        print("#", end='')
+                print('')
+        else:
+            print('')
