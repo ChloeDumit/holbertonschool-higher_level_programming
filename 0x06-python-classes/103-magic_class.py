@@ -13,6 +13,7 @@ class MagicClass:
         self.__radius = radius
 
     def area(self):
+        """calculates area"""
         return (self.__radius ** 2) * math.pi
     
     def circumference(self, radius):
