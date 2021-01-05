@@ -44,10 +44,10 @@ class Square:
 
     def area(self):
         """calculates area"""
-        return int(self.__size) * int(self.__size)
+        return self.__size * self.__size
 
     def my_print(self):
-        """print square"""
+        """print square with coordinates"""
         if self.__size == 0:
             print()
         if self.position:
