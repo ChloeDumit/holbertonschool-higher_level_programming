@@ -14,4 +14,4 @@ Class Square: creates a square class
 
     def area(self):
         """calculates area"""
-        return int(self.__size) * int(self.__size)
+        return self.__size * self.__size
