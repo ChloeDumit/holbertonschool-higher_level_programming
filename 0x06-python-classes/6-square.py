@@ -15,9 +15,6 @@ class Square:
     def size(self):
         return self.__size
 
-    def position(self):
-        return self.__position
-
     @size.setter
     def size(self, value):
         """set size"""
@@ -27,7 +24,10 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
-
+    @property
+    def position(self):
+        return self.__position
+    @position.setter
     def position(self, value):
         """set position"""
         if type(value) is not tuple or len(value) != 2:
@@ -48,15 +48,11 @@ class Square:
 
     def my_print(self):
         """print square with coordinates"""
-         if (self.size != 0):
-            for n in range(self.__position[1]):
-                print("")
-            for x in range(self.__size):
-                for y in range(self.__size + self.__position[0]):
-                    if (y < self.__position[0]):
-                        print(" ", end="")
-                    else:
-                        print("#", end='')
-                print('')
-        else:
-            print('')
+        if self.__size == 0:
+            print()
+        if self.position:
+            if self.__size > 0:
+                print("\n" * self.__position[1], end="")
+                for a in range(self.size):
+                    print(" " * self.__position[0], end="")
+                    print("#" * self.__size)
