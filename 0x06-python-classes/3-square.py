@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-class Square:
-    """
+"""
 Class Square: creates a square class
 """
+
+
+class Square:
     """creates class"""
     def __init__(self, size=0):
         """initializes data"""
