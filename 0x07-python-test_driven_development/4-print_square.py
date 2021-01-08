@@ -3,6 +3,7 @@
 """Prints # square
 """
 
+
 def print_square(size):
     """ Prints square """
     if type(size) is not int:
