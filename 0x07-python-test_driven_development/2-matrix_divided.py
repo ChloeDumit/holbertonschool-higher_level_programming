@@ -7,6 +7,8 @@
 def matrix_divided(matrix, div):
     """ Function to divide elements of a matrix
     """
+    e1 = "Each row of the matrix must have the same size"
+    e2 = "matrix must be a matrix (list of lists) of integers/floats"
     new_matrix = list(map(list, matrix))
     large = 0
     if div == 0:
@@ -18,8 +20,11 @@ def matrix_divided(matrix, div):
             if large == 0:
                 large = len(row)
             elif large != len(row):
-                raise TypeError("Each row of the matrix must have the same size")
+                raise TypeError(e1)
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
-           new_matrix[i][j] = round(matrix[i][j]/div, 2)
+            if type(new_matrix[i][j]) is not int:
+                if type(new_matrix[i][j]) is not float:
+                    raise TypeError(e2)
+            new_matrix[i][j] = round(matrix[i][j]/div, 2)
     return new_matrix
