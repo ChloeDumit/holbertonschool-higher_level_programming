@@ -49,6 +49,7 @@ class Rectangle:
                 return (self.__height + self.__width) * 2
 
         def __str__(self):
+            """  str func """
             result = ""
 
             if self.__width == 0 or self.__height == 0:
@@ -62,8 +63,10 @@ class Rectangle:
                 return result
 
         def __repr__(self):
+            """ repr func"""
             return "Rectangle(" + str(self.__width) + \
                 "," + str(self.__height) + ")"
 
         def __del__(self):
+            """ del func """
             print("Bye rectangle...")
