@@ -6,8 +6,8 @@ Class Rectangle: Defines a Rectangle
 
 class Rectangle:
     """ comment """
-
     number_of_instances = 0
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         """ comment """
@@ -64,7 +64,7 @@ class Rectangle:
         else:
             for i in range(self.__height):
                 for j in range(self.__width):
-                    result = result + "#"
+                    result = result + str(self.print_symbol)
                 result = result + '\n'
             result = result[:-1]
             return result
