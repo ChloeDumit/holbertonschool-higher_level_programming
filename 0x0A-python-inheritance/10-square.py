@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" import from 7-base_geometry """
+
 Rectangle = __import__('9-rectangle').Rectangle
 """
 Return true if object is an instance
