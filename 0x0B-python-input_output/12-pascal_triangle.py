@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """ My class module
 """
+
+
 def pascal_triangle(n):
     """ creates a pascal triangle """
     new_list = []

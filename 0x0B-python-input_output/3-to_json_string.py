@@ -6,6 +6,8 @@ import json
 reads a text file
 
 """
+
+
 def to_json_string(my_obj):
     """encodes string to json """
     json_string = json.dumps(my_obj)
