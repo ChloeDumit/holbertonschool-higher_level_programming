@@ -7,6 +7,8 @@ creating new class
 
 
 """
+
+
 class Rectangle(Base):
     """ class rectangle """
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -15,7 +17,7 @@ class Rectangle(Base):
         self.x = x
         self.y = y
         super().__init__(id)
-    
+
     @property
     def width(self):
         return self.__width
@@ -24,11 +26,12 @@ class Rectangle(Base):
     def width(self, value):
         """width setter"""
         if (type(value) is not int):
-            raise TypeError ("width must be an integer")
+            raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
         self.__width = value
-    @property    
+
+    @property
     def height(self):
         return self.__height
 
@@ -36,7 +39,7 @@ class Rectangle(Base):
     def height(self, value):
         """height setter"""
         if type(value) is not int:
-            raise TypeError ("height must be an integer")
+            raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
@@ -49,7 +52,7 @@ class Rectangle(Base):
     def x(self, value):
         """ x setter"""
         if type(value) is not int:
-            raise TypeError ("x must be an integer")
+            raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
@@ -57,11 +60,12 @@ class Rectangle(Base):
     @property
     def y(self):
         return self.__y
+
     @y.setter
     def y(self, value):
         """ y setter"""
         if type(value) is not int:
-            raise TypeError ("y must be an integer")
+            raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
@@ -75,11 +79,11 @@ class Rectangle(Base):
         if self.__width == 0 or self.__height == 0:
             print()
         for i in range(self.__y):
-            print("" * self.__y)        
+            print("" * self.__y)
         for j in range(self.__height):
             print(" " * self.__x, end='')
             print("#" * self.__width)
-    
+
     def __str__(self):
         """override str"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
@@ -102,5 +106,5 @@ class Rectangle(Base):
               'height': self.__height,
               'x': self.__x,
               'y': self.__y
-              }
+               }
         return dic

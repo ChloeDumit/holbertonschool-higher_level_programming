@@ -2,6 +2,7 @@
 """importing"""
 import json
 import os
+import csv
 """
 
 creating new class
@@ -27,8 +28,8 @@ class Base:
         """ convert to json string """
         lista = []
         if list_dictionaries is not None:
-           lista = json.dumps(list_dictionaries)
-           return lista
+            lista = json.dumps(list_dictionaries)
+            return lista
         else:
             return lista
 
@@ -58,7 +59,7 @@ class Base:
     def create(cls, **dictionary):
         """returns an instance with all attributes already set """
         if cls.__name__ == 'Rectangle':
-            dummy = cls(1,2)
+            dummy = cls(1, 2)
         if cls.__name__ == 'Square':
             dummy = cls(7)
         dummy.update(**dictionary)

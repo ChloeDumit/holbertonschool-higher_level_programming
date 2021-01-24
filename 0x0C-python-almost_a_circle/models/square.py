@@ -7,6 +7,8 @@ creating new class
 
 
 """
+
+
 class Square(Rectangle):
     """ class Square """
     def __init__(self, size, x=0, y=0, id=None):
@@ -22,15 +24,16 @@ class Square(Rectangle):
     def size(self, value):
         """width setter"""
         if (type(value) is not int):
-            raise TypeError ("width must be an integer")
+            raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
         self.__size = value
 
     def __str__(self):
         """override str"""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.__size)
-    
+        return "[Square] ({}) {}/{} - {}".format(self.id,
+                 self.x, self.y, self.__size)
+
     def update(self, *args, **kwargs):
         """ update arguments """
         attributes = ["id", "size", "x", "y"]
@@ -38,8 +41,8 @@ class Square(Rectangle):
             for arg in range(len(args)):
                 if arg == 0:
                     super().update(args[arg])
-                    
-                elif arg < len(attributes): 
+
+                elif arg < len(attributes):
                     setattr(self, attributes[arg], args[arg])
         else:
             for key, value in kwargs.items():
@@ -56,7 +59,3 @@ class Square(Rectangle):
               'y': self.y
                }
         return dic
-
-
-
-                        
