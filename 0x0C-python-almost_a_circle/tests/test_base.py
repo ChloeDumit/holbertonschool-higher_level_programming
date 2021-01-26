@@ -203,5 +203,31 @@ class TestBase(unittest.TestCase):
                                                        '"x": 0, ' +
                                                        '"height": 4}]'))
 
+    def test_csv_1(self):
+        """test csv1"""
+        Base._Base__nb_objects = 0
+        r2 = Rectangle(10, 7, 2, 8)
+        r3 = Rectangle(2, 4)
+        list_rectangles_input = [r2, r3]
+        list_rectangles_input = [r2, r3]
+        Rectangle.save_to_file_csv(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file_csv()
+        for rect in list_rectangles_output:
+            self.assertEquals(rect.__str__(), '[Rectangle] ({}) {}/{} - {}/{}'
+                              .format(rect.id, rect.x, rect.y, rect.width,
+                                      rect.height))
+
+    def test_csv_2(self):
+        """test csv2"""
+        Base._Base__nb_objects = 0
+        self.s1 = Square(5)
+        self.s2 = Square(7, 9, 1)
+        list_squares_input = [self.s1, self.s2]
+        Square.save_to_file_csv(list_squares_input)
+        list_squares_output = Square.load_from_file_csv()
+        for rect in list_squares_output:
+            self.assertEquals(rect.__str__(), '[Square] ({}) {}/{} - {}'
+                              .format(rect.id, rect.x, rect.y, rect.size))
+
 if __name__ == "__main__":
     unittest.main()

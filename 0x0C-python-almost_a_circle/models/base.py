@@ -75,3 +75,40 @@ class Base:
                 for i in stringread:
                     lista.append(cls.create(**i))
         return lista
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ save to csv file """
+        my_list = []
+        fname = cls.__name__ + ".csv"
+        fieldnames = []
+        if list_objs is not None:
+            for ins in list_objs:
+                my_list.append(cls.to_dictionary(ins))
+        fieldnames = sorted(list(my_list[0].keys()))
+        with open(fname, 'w') as f:
+            fwrite = csv.DictWriter(f, fieldnames=fieldnames)
+            for l in my_list:
+                fwrite.writerow(l)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ instnace from csv file"""
+        fname = cls.__name__ + ".csv"
+        my_list = []
+        dc = {}
+        fname = cls.__name__ + '.csv'
+        if os.path.isfile(fname):
+            with open(fname, 'r') as f:
+                csvread = csv.reader(f)
+                if cls.__name__ == 'Rectangle':
+                    keys = ['id', 'width', 'height', 'x', 'y']
+                elif cls.__name__ == 'Square':
+                    keys = ['id', 'size', 'x', 'y']
+                for row in csvread:
+                    aux = 0
+                    for i in row:
+                        dc[keys[aux]] = int(i)
+                        aux += 1
+                    my_list.append(cls.create(**dc))
+        return my_list
