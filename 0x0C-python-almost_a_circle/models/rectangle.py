@@ -86,8 +86,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """override str"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                self.__x, self.__y, self.__width, self.__height)
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format
+                (self.id, self.__x, self.__y, self.__width, self.__height))
 
     def update(self, *args, **kwargs):
         """ update arguments """
@@ -102,9 +102,9 @@ class Rectangle(Base):
     def to_dictionary(self):
         """ returns a dictionary of a class """
         dic = {'id': self.id,
-              'width': self.__width,
-              'height': self.__height,
-              'x': self.__x,
-              'y': self.__y
+               'width': self.__width,
+               'height': self.__height,
+               'x': self.__x,
+               'y': self.__y
                }
         return dic

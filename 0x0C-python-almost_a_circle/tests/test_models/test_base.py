@@ -7,6 +7,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 class TestBase(unittest.TestCase):
     """ class for test base """
 
@@ -54,19 +55,16 @@ class TestBase(unittest.TestCase):
         sq3 = Square(4)
         self.assertEqual(sq2 is sq3, False)
 
-
-
     def test_json_dict_to_str_0(self):
         """test json, convert dict to str"""
         Base._Base__nb_objects = 0
         r1 = Rectangle(10, 7, 2, 8)
         dictionary = r1.to_dictionary()
         json_dictionary = Base.to_json_string([dictionary])
-        self.assertEqual(dictionary, {'width': 10,'height': 7, 'x': 2, 
+        self.assertEqual(dictionary, {'width': 10, 'height': 7, 'x': 2,
                                       'id': 1, 'y': 8})
         self.assertEqual(type(dictionary), dict)
         self.assertEqual(type(json_dictionary), str)
-        
 
     def test_json_dict_to_str_0(self):
         """test json, convert dict to str"""
@@ -105,7 +103,8 @@ class TestBase(unittest.TestCase):
         Rect2 = Rectangle(5, 4)
         new_dict2 = Rect2.to_dictionary()
         jstrg = Base.to_json_string([new_dict2])
-        self.assertEqual(new_dict2, {'y': 0, 'height': 4, 'width': 5, 'x': 0, 'id': 1})
+        self.assertEqual(new_dict2, {'y': 0, 'height': 4,
+                                     'width': 5, 'x': 0, 'id': 1})
 
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
@@ -113,7 +112,6 @@ class TestBase(unittest.TestCase):
             new_dict3 = Rect3.to_dictionary()
             jstrg2 = Base.to_json_string([new_dict3])
             Base.to_json_string(jstrg2)
-
 
     def test1_jsonstr_to_dic(self):
         """ test json to dict """
@@ -182,8 +180,8 @@ class TestBase(unittest.TestCase):
             file1 = file.read()
             list_output = Rectangle.from_json_string(file1)
             lista = [{'x': 0, 'width': 4, 'id': 1, 'height': 5, 'y': 0},
-                    {'x': 0, 'width': 6, 'id': 2, 'height': 7, 'y': 0},
-                    {'x': 0, 'width': 8, 'id': 3, 'height': 9, 'y': 0}]
+                     {'x': 0, 'width': 6, 'id': 2, 'height': 7, 'y': 0},
+                     {'x': 0, 'width': 8, 'id': 3, 'height': 9, 'y': 0}]
             self.assertEqual(list_output, lista)
 
     def test3_json_to_file(self):
@@ -195,12 +193,15 @@ class TestBase(unittest.TestCase):
             with open("Rectangle.json", "r") as file:
                 file1 = file.read()
                 self.assertEqual(sorted(file1), sorted('[{"id": 1, ' +
-                                                    '"width": 2, ' +
-                                                    '"y": 0, ' +
-                                                    '"x": 0, ' +
-                                                    '"height": 4}, ' +
-                                                    '{"id": 2, ' +
-                                                    '"width": 2, ' +
-                                                    '"y": 0, ' +
-                                                    '"x": 0, ' +
-                                                    '"height": 4}]'))
+                                                       '"width": 2, ' +
+                                                       '"y": 0, ' +
+                                                       '"x": 0, ' +
+                                                       '"height": 4}, ' +
+                                                       '{"id": 2, ' +
+                                                       '"width": 2, ' +
+                                                       '"y": 0, ' +
+                                                       '"x": 0, ' +
+                                                       '"height": 4}]'))
+
+if __name__ == "__main__":
+    unittest.main()
