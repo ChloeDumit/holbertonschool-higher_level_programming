@@ -1,7 +1,7 @@
 -- list join --
 
-SELECT t.title, tg.genre_id
-FROM tv_shows_genres tg
-RIGHT OUTER JOIN tv_shows t
-ON t.id = tg.show_id
-ORDER BY t.title, tg.genre_id ASC;
+SELECT A.title, B.genre_id
+FROM tv_shows A
+LEFT JOIN tv_show_genres B 
+ON A.id = B.show_id
+ORDER BY A.title, B.genre_id;
