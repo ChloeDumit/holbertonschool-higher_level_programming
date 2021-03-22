@@ -8,4 +8,10 @@ process.argv.forEach((val, index) => {
 });
 newArgument = [...new Set(argument)];
 newArgument.sort((a, b) => a - b);
-if (lastIndex <= 2) { console.log(0); } else if (lastIndex === 3) { console.log(0); } else { console.log(parseInt(newArgument[lastIndex - 2])); }
+if (lastIndex <= 2) {
+  console.log(0);
+} else if (lastIndex === 3) {
+  console.log(0);
+} else {
+  console.log(parseInt(newArgument[lastIndex - 2]));
+}
