@@ -1,7 +1,7 @@
 #!/usr/bin/node
 let size;
 const arg = [];
-
+let newarg = [];
 
 process.argv.forEach((val, index) => {
   size = `${index}`;
@@ -11,7 +11,8 @@ process.argv.forEach((val, index) => {
 if (size <= 2) {
     console.log('0');
 }
-for (let j = 2; j < size; j++) {
+
+/*for (let j = 2; j < size; j++) {
     for (let i = 2; i < size; i++) {
         if(arg[i] > arg[i + 1]) {
             let tmp = arg[i];
@@ -19,5 +20,7 @@ for (let j = 2; j < size; j++) {
             arg[i + 1] = tmp;
         }
     }
-}
-console.log(arg[size - 1]);
+}*/
+newarg = [...new Set(arg)];
+newarg.sort((a, b) => a - b);
+console.log(newarg[size - 1]);
