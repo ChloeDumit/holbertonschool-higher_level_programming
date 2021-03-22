@@ -12,4 +12,4 @@ if (size <= 2) {
     console.log('0');
 }
 arg.sort();
-console.log(arg[size-1]);
+console.log(parseInt(arg[size-1]));
