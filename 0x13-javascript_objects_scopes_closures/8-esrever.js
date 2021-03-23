@@ -1,10 +1,9 @@
 #!/usr/bin/node
 exports.esrever = function (list) {
-    var arrayOne = list
-    var array2 = [];
-
-    for (var i = arrayOne.length-1; i >= 0; i--){
-      array2.push(arrayOne[i])
-    } 
-    return array2
+    var i = 0;
+    while (i < list.length - 1) {
+    list.splice(i, 0, list.pop());
+    i++;
+  }
+  return list;
 }
