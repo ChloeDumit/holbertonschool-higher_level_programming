@@ -1,4 +1,10 @@
 #!/usr/bin/node
 exports.esrever = function (list) {
-    return list.reverse();
+    var arrayOne = list
+    var array2 = [];
+
+    for (var i = arrayOne.length-1; i >= 0; i--){
+      array2.push(arrayOne[i])
+    } 
+    return array2
 }
