@@ -22,5 +22,5 @@ if __name__ == '__main__':
         print("{}".format(statelist.id))
     else:
         print("Not found")
-    
+
     session.close()
