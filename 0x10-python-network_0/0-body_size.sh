@@ -1,2 +1,2 @@
 #!/bin/bash
-curl -so /dev/null "$1" -w '%{size_download}\n'
+curl -Is "$1" | grep -i Content-length | cut -f2 -d" "
