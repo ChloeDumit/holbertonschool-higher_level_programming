@@ -1,2 +1,3 @@
 #!/bin/bash
-curl -Is "$1" | grep -i Content-length | cut -f2 -d" "
+# Use curl to get the content-length of the header
+curl -sI "$1" | grep 'Content-Length' | awk '{print $2}'
