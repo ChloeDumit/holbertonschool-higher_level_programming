@@ -1,18 +1,19 @@
 #!/usr/bin/python3
-"""importing"""
+""" Posting an email """
+import urllib.parse
 import urllib.request
-import sys
+from sys import argv
 
 
-url = sys.argv[1]
-mail = sys.argv[2]
-email = {'mail': mail}
+if __name__ == "__main__":
+    url = argv[1]
+    email = argv[2]
+    value = {'email': email}
 
-data = urllib.parse.urlencode(email)
-data = data.encode('ascii')
-req = urllib.request.Request(url, mail)
-
-with urllib.request.urlopen(req) as response:
-    info = response.read()
-    decoded = info.decode('utf-8')
-    print("Your email is: ".format(decoded))
+    data = urllib.parse.urlencode(value)
+    data = data.encode('ascii')
+    req = urllib.request.Request(url, data)
+    with urllib.request.urlopen(req) as response:
+        info = response.read()
+        decoded = info.decode('utf-8')
+        print(decoded)
